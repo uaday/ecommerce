@@ -18,9 +18,26 @@ class Home extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $data['name']=$this->session->userdata('name');
+        $data['login_id']=$this->session->userdata('login_id');
+        $this->session->set_userdata('i','1');
+
+        if($data['login_id']!=null)
+        {
+            $this->load->view('super_admin_view/master');
+        }
+        else
+        {
+            redirect(base_url().'super_admin/login');
+        }
+    }
     public function index()
     {
-        $this->load->view('super_admin_view/master');
         $this->load->view('super_admin_view/home/view_home');
 //        $this->load->view('super_admin_view/login_register/view_login');
     }

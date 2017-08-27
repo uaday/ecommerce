@@ -19,10 +19,24 @@ class Login extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+
     public function index()
     {
-        $this->load->view('super_admin_view/login_register/master');
-        $this->load->view('super_admin_view/login_register/view_login');
+        $data['name']=$this->session->userdata('name');
+        $data['login_id']=$this->session->userdata('login_id');
+        $this->session->set_userdata('i','1');
+
+        if($data['login_id']!=null)
+        {
+            $this->load->view('super_admin_view/master');
+            $this->load->view('super_admin_view/home/view_home');
+        }
+        else
+        {
+            $this->load->view('super_admin_view/login_register/master');
+            $this->load->view('super_admin_view/login_register/view_login');
+        }
     }
 
     public function login_check()
@@ -37,7 +51,7 @@ class Login extends CI_Controller
             if ($result) {
                 if ($result[0]->status == 1) {
 //                        $this->login_model-> update_login_status($email);
-                    $sess_data = array('login' => true, 'login_id' => $result[0]->login_id, 'name' => $result[0]->name, 'user_type' => $result[0]->user_type);
+                    $sess_data = array('login' => true,'user_id'=>$result[0]->user_id, 'login_id' => $result[0]->login_id, 'name' => $result[0]->name, 'user_type' => $result[0]->user_type);
                     $this->session->set_userdata($sess_data);
                     redirect(base_url() . 'super_admin/home');
                 } else {
@@ -55,7 +69,7 @@ class Login extends CI_Controller
 
     public function logout()
     {
-        $data = array('login' => '', 'name' => '', 'login_id' => '', 'user_type' => '');
+        $data = array('login' => '','user_id' => '', 'name' => '', 'login_id' => '', 'user_type' => '');
         $this->session->unset_userdata($data);
         $this->session->sess_destroy();
         redirect(base_url() . 'super_admin/login');

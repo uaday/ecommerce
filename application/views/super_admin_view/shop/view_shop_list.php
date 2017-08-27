@@ -77,14 +77,10 @@
                                                     <p><strong>Country: </strong><?php echo $shop['country']?></p>
                                                     <p><strong>Region: </strong><?php echo $shop['region']?></p>
                                                     <p><strong>Currency: </strong><?php echo $shop['currency']?></p>
-                                                    <strong>Status: </strong><br><br>
-                                                    <?php if($shop['status']==1){?>
-                                                        <button class="btn btn-warning btn-sm btn-block waves-effect" type="button">Pending</button>
-                                                    <?php } else if($shop['status']==2){?>
-                                                        <button class="btn btn-primary btn-sm btn-block waves-effect" type="button">Processing</button>
-                                                    <?php } else {?>
-                                                        <button class="btn btn-success btn-sm btn-block waves-effect" type="button">Accepted</button>
-                                                    <?php }?>
+                                                    <strong>Status: </strong><?php if ($shop['status'] == 1) { ?><span
+                                                            class="label bg-orange">Pending</span><?php } else if ($shop['status'] == 2) { ?>
+                                                        <span class="label bg-blue">Processing</span><?php } else { ?>
+                                                        <span class="label bg-green">Accepted</span><?php } ?>
 
 
                                                 </div>
