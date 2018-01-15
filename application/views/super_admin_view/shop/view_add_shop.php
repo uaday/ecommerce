@@ -8,7 +8,7 @@
                         <h2>Create Shop Form</h2>
                     </div>
                     <div class="body">
-                        <form id="form_advanced_validation" method="POST" action="<?php echo base_url()?>super_admin/shop/add_shop">
+                        <form id="form_advanced_validation" method="POST" action="<?php echo base_url()?>portal/shop/add_shop">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="shop_owner" required>

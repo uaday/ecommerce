@@ -51,7 +51,7 @@
                 <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
 
                 <div class="m-t-25 m-b--5 align-center">
-                    <a href="<?php echo base_url()?>super_admin/login">You already have a membership?</a>
+                    <a href="<?php echo base_url()?>portal/login">You already have a membership?</a>
                 </div>
             </form>
         </div>

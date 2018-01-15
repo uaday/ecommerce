@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Brac E-commerce (Portal)</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -49,6 +49,7 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url() ?>asset/admin/css/themes/theme-pink.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="<?php echo base_url() ?>asset/front_end/logo/brac_fav.png" type="image/x-icon"/>
 </head>
 
 <body class="theme-pink">
@@ -90,17 +91,9 @@
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
                data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="<?php echo base_url() ?>super_admin/home">Agent Ecommerce</a>
+            <a class="navbar-brand" href="<?php echo base_url() ?>portal/home">Brac Ecommerce</a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Call Search -->
-                <li><a href="javascript:void(0);" class="js-search" data-close="true"><i
-                                class="material-icons">search</i></a></li>
-                <!-- #END# Call Search -->
 
-            </ul>
-        </div>
     </div>
 </nav>
 <!-- #Top Bar -->
@@ -113,18 +106,11 @@
                 <img src="<?php echo base_url() ?>asset/admin/images/user.png" width="48" height="48" alt="User"/>
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                <div class="email">john.doe@example.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name')?></div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                        <li role="seperator" class="divider"></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                        <li role="seperator" class="divider"></li>
-                        <li><a href="<?php echo base_url() ?>super_admin/login/logout"><i
+                        <li><a href="<?php echo base_url() ?>portal/login/logout"><i
                                         class="material-icons">input</i>Sign Out</a></li>
                     </ul>
                 </div>
@@ -136,37 +122,215 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
-                    <a href="<?php echo base_url() ?>super_admin/home">
+                    <a href="<?php echo base_url() ?>portal/home">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
+                <?php if($this->session->userdata('user_type')=='1'){?>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">shop</i>
-                        <span>Shop</span>
+                        <i class="material-icons">image</i>
+                        <span>Slider</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="<?php echo base_url() ?>super_admin/shop/create_shop">Create Shop</a>
+                            <a href="<?php echo base_url() ?>portal/slider/add_slider">Add Slider</a>
                         </li>
                         <li>
-                            <?php if ($this->session->userdata('user_type') == '1') { ?>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Track Shop</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li><a href="<?php echo base_url() ?>super_admin/shop/request_shop">Request Shop</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url() ?>super_admin/shop/online_shop">Online Shop</a>
-                                    </li>
-                                </ul>
-                            <?php } else { ?>
-                                <a href="<?php echo base_url() ?>super_admin/shop/shop_list">Shop List</a>
-                            <?php } ?>
+                            <a href="<?php echo base_url() ?>portal/slider/manage_slider">Manage Slider</a>
                         </li>
                     </ul>
                 </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">image</i>
+                        <span>About Slider</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<?php echo base_url() ?>portal/about_slider/add_slider">Add About Slider</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url() ?>portal/about_slider/manage_slider">Manage About Slider</a>
+                        </li>
+                    </ul>
+                </li>
+                <?php }?>
+
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li >
+                        <a href="<?php echo base_url() ?>portal/home_body">
+                            <i class="material-icons">line_weight</i>
+                            <span>Home Body</span>
+                        </a>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li >
+                        <a href="<?php echo base_url() ?>portal/home_tab">
+                            <i class="material-icons">assignment</i>
+                            <span>Home Tab</span>
+                        </a>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">announcement</i>
+                            <span>Notice</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/notice/add_notice">Add Notice</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/notice/manage_notice">Manage Notice</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_comfy</i>
+                            <span>Category</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/category/add_category">Add Category</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/category/manage_category">Manage Category</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_comfy</i>
+                            <span>Product Settings</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product_settings/product_design">Product Design</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product_settings/product_condition">Product Condition</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product_settings/product_grade">Product Grade</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='2'||$this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">card_giftcard</i>
+                            <span>Product/Service</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <?php if($this->session->userdata('user_type')=='2'){?>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product/add_product">Add Product/Service</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product/manage_product">Manage Product/Service</a>
+                            </li>
+                            <?php } else {?>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/product/product_approve">Approve Product/Service</a>
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_comfy</i>
+                            <span>Learner</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/learner/add_learner">Bulk Learner</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/learner/manage_learner">Manage Learner</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_comfy</i>
+                            <span>MCP</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/mcp/add_mcp">Bulk MCP</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url() ?>portal/mcp/manage_mcp">Manage MCP</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li >
+                        <a href="<?php echo base_url() ?>portal/contact">
+                            <i class="material-icons">line_weight</i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='2'){?>
+                    <li >
+                        <a href="<?php echo base_url() ?>portal/product_request">
+                            <i class="material-icons">line_weight</i>
+                            <span>Product/Service Request</span>
+                        </a>
+                    </li>
+                <?php }?>
+                <?php if($this->session->userdata('user_type')=='1'){?>
+                    <li >
+                        <a href="<?php echo base_url() ?>portal/admin_user/admin_user">
+                            <i class="material-icons">account_circle</i>
+                            <span>Admin User</span>
+                        </a>
+                    </li>
+                <?php }?>
+<!--                <li>-->
+<!--                    <a href="javascript:void(0);" class="menu-toggle">-->
+<!--                        <i class="material-icons">shop</i>-->
+<!--                        <span>Shop</span>-->
+<!--                    </a>-->
+<!--                    <ul class="ml-menu">-->
+<!--                        <li>-->
+<!--                            <a href="--><?php //echo base_url() ?><!--portal/shop/create_shop">Create Shop</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            --><?php //if ($this->session->userdata('user_type') == '1') { ?>
+<!--                                <a href="javascript:void(0);" class="menu-toggle">-->
+<!--                                    <span>Track Shop</span>-->
+<!--                                </a>-->
+<!--                                <ul class="ml-menu">-->
+<!--                                    <li><a href="--><?php //echo base_url() ?><!--portal/shop/request_shop">Request Shop</a>-->
+<!--                                    </li>-->
+<!--                                    <li><a href="--><?php //echo base_url() ?><!--portal/shop/online_shop">Online Shop</a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            --><?php //} else { ?>
+<!--                                <a href="--><?php //echo base_url() ?><!--portal/shop/shop_list">Shop List</a>-->
+<!--                            --><?php //} ?>
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
             </ul>
         </div>
@@ -174,7 +338,7 @@
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy; <?php echo date('Y') ?> <a href="http://appinionbd.com" target="_blank">APPINION BD LIMITED</a>.
+                &copy; <?php echo date('Y') ?> <a href="<?php echo base_url()?>" target="_blank">BRAC E-COMMERCE</a>.
             </div>
             <div class="version">
                 <b>Version: </b> 1.0.0
@@ -263,3 +427,88 @@
 </body>
 
 </html>
+
+
+<script >
+    function delete_accout() {
+        var check = confirm('Are You Sure To Delete This Account');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_product() {
+        var check = confirm('Are You Sure To Delete Product');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_slider() {
+        var check = confirm('Are You Sure To Delete The Slider');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_notice() {
+        var check = confirm('Are You Sure To Delete The Notice');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_category() {
+        var check = confirm('Are You Sure To Delete The Category');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_learner() {
+        var check = confirm('Are You Sure To Delete Learner');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_product_design() {
+        var check = confirm('Are You Sure To Delete Product Design');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_product_condition() {
+        var check = confirm('Are You Sure To Delete Product Condition');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function delete_product_grade() {
+        var check = confirm('Are You Sure To Delete Product Grade');
+        if (check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>

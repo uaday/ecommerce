@@ -20,6 +20,28 @@ class Home extends CI_Controller {
      */
     public function index()
     {
-        $this->load->view('front_end_view/view_home');
+        if (!isset($_SESSION['language_id'])){
+            $_SESSION['language_id'] = "1";
+        }
+        if($this->session->userdata('cart_counter')==null)
+        {
+            $this->session->set_userdata('cart_counter','0');
+        }
+
+        $this->session->unset_userdata('printCart');
+        $this->session->unset_userdata('printUser');
+        $this->session->unset_userdata('invoice_id');
+
+        $_SESSION['sort'] = "1";
+        $this->session->unset_userdata('category_id');
+        $data['sliders']=$this->front_home_model->show_slider();
+        $data['total_mcp']=$this->front_home_model->total_mcp();
+        $data['total_learner']=$this->front_home_model->total_learner();
+        $data['total_product']=$this->front_home_model->total_product();
+        $data['home_body']=$this->home_body_model->select_home_body();
+        $data['home_tab']=$this->home_tab_model->select_home_tab();
+        $data['hero_header'] = TRUE;
+        $data['main_content'] = $this->load->view('front_end_view/home/view_home', $data, TRUE);
+        $this->load->view('front_end_view/master',$data);
     }
 }

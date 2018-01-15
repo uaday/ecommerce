@@ -100,13 +100,13 @@
                                                     <br>
                                                     <hr>
                                                     <strong>Action</strong>
-                                                    <a href="<?php echo base_url() ?>super_admin/shop/pending_shop?shop_id=<?php echo $shop['shop_id'] ?>"
+                                                    <a href="<?php echo base_url() ?>portal/shop/pending_shop?shop_id=<?php echo $shop['shop_id'] ?>"
                                                        class="btn btn-warning btn-lg btn-block waves-effect"
                                                        type="button">Pending</a>
-                                                    <a href="<?php echo base_url() ?>super_admin/shop/processing_shop?shop_id=<?php echo $shop['shop_id'] ?>"
+                                                    <a href="<?php echo base_url() ?>portal/shop/processing_shop?shop_id=<?php echo $shop['shop_id'] ?>"
                                                        class="btn btn-primary btn-lg btn-block waves-effect"
                                                        type="button">Processing</a>
-                                                    <a href="<?php echo base_url() ?>super_admin/shop/accept_shop?shop_id=<?php echo $shop['shop_id'] ?>"
+                                                    <a href="<?php echo base_url() ?>portal/shop/accept_shop?shop_id=<?php echo $shop['shop_id'] ?>"
                                                        class="btn btn-success btn-lg btn-block waves-effect"
                                                        type="button">Accepted</a>
 

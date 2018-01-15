@@ -2,10 +2,10 @@
 
 class Login_model extends CI_Model {
 
-    public function lcheck($email,$pass)
+    public function lcheck($phone_number,$pass)
     {
         $data=array(
-            'email'=>$email,
+            'phone_number'=>$phone_number,
             'password'=>md5($pass)
         );
         $query = $this->db->get_where('tbl_login',$data);

@@ -1,19 +1,21 @@
 <body class="login-page">
 <div class="login-box">
     <div class="logo">
-        <a href="javascript:void(0);">E-commerce<b></b></a>
+        <a href="javascript:void(0);"><img style="width: 145px;height: 45px"
+                                           src="<?php echo base_url() ?>asset/front_end/logo/logo.png" alt="Universal logo"
+                                           class="hidden-xs hidden-sm"></a>
 <!--        <small>Admin BootStrap Based - Material Design</small>-->
     </div>
     <div class="card">
         <div class="body">
-            <form id="sign_in" method="POST" action="<?php echo base_url()?>super_admin/login/login_check">
+            <form id="sign_in" method="POST" action="<?php echo base_url()?>portal/login/login_check">
                 <div class="msg">Sign in to start your session</div>
                 <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">email</i>
                         </span>
                     <div class="form-line">
-                        <input type="email" class="form-control" name="email" placeholder="E-mail" required autofocus>
+                        <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required autofocus>
                     </div>
                 </div>
                 <div class="input-group">
@@ -35,7 +37,7 @@
                 </div>
                 <div class="row m-t-15 m-b--20">
                     <div class="col-xs-6">
-                        <a href="<?php echo base_url()?>super_admin/register">Register Now!</a>
+<!--                        <a href="--><?php //echo base_url()?><!--portal/register">Register Now!</a>-->
                     </div>
 <!--                    <div class="col-xs-6 align-right">-->
 <!--                        <a href="forgot-password.html">Forgot Password?</a>-->
